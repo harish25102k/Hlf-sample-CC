@@ -11,6 +11,7 @@ const cors = require('cors');
 
 const helper = require('./app/helper')
 const invoke = require('./app/invoke')
+const query = require('./app/query')
 
 
 const host = 'localhost'
@@ -107,7 +108,7 @@ app.post('/getdetailsbyid', async function (req, res){
             return;
         }
 
-        let message = await invoke.invokeTransaction(channelName, chaincodeName, fcn, args, req.username, req.orgname);
+        let message = await query.query(channelName, chaincodeName, fcn, args, req.username, req.orgname);
         console.log(`message result is : ${message}`)
 
         const response_payload = {
@@ -157,7 +158,7 @@ app.post('/query-result-by-name', async function (req, res){
             return;
         }
 
-        let message = await invoke.invokeTransaction(channelName, chaincodeName, fcn, args, req.username, req.orgname);
+        let message = await query.query(channelName, chaincodeName, fcn, args, req.username, req.orgname);
         console.log(`message result is : ${message}`)
 
         const response_payload = {

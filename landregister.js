@@ -11,7 +11,7 @@ class Landregister extends Contract{
     const account = {
         id:args[0],
         file:args[1],
-        owner:args[3],
+        owner:args[2],
         createdOn:Date.now(),
         latestTransaction:ctx.stub.getTxID()
     }
